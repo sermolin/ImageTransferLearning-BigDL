@@ -5,7 +5,7 @@
 
     3  sudo apt-get update
 
-    4  sudo apt-get install oracle-java8-installer
+    4  sudo apt-get install oracle-java8-installer    # needs propmpts on gui-like screen
 
     5  sudo apt-get install oracle-java8-set-default
 
@@ -16,22 +16,21 @@
     8  sudo tar xvzf spark-2.2.0-bin-hadoop2.7.tgz
 
     9  rm spark-2.2.0-bin-hadoop2.7.tgz
-
-   10  sudo cd /Users/svermoli
-
-   11  sudo mv spark-2.2.0-bin-hadoop2.7 /Users/svermoli
-
+    10 sudo apt-get install maven
+    
  
 
-We don’t have *.zip distribution for this version of BiDL yet, so need to build:
+# We don’t have *.zip distribution for this version of BiDL yet, so need to build:
+# the repo is protected by 2-factor authentication. to get around it, you need to generate a token
+# Profile->Settings->DeveloperSettings->PersonalAccessTokens->GenerateNewToken (make sure to check the "repo" checkbox at the top.
 
- 
+git clone repo github.com/intel-analytics/zoo
+#enter username and paste tocken in place of the password
+git submodule update --init --recursive
 
-Clone repo github.com/intel-analytics/zoo
+On my system, the repo is placed in /Users/svermoli/Documents/GigHub/intel-analytics/zoo
 
-On my system, it is placed in /Users/svermoli/Documents/GigHub/intel-analytics/zoo
-
-In this directory issues command to build BigDL:
+In this directory issue command to build BigDL:
 
 $bash make-dist.sh –P spark.2.x
 
