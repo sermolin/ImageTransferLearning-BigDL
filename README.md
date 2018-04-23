@@ -32,9 +32,9 @@ On my system, the repo is placed in /Users/svermoli/Documents/GigHub/intel-analy
 
 In this directory issue command to build BigDL:
 
-$bash make-dist.sh –P spark.2.x
+$bash make-dist.sh -P spark.2.x
 
-BigDL jars are placed in /Users/svermoli/Documents/GigHub/intel-analytics/zoo/zoo/target
+BigDL jars are placed in /Users/svermoli/Documents/GigHub/intel-analytics/zoo/dist (!caution - note that htere is also zoo/zoo/dist/target directory. that's not the one you want)
 
 export SPARK_HOME=/Users/svermoli/spark-2.2.0-bin-hadoop2.7
 
