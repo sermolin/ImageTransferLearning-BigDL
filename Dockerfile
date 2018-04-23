@@ -5,6 +5,11 @@ COPY install.sh ./
 RUN /bin/bash install.sh
 RUN rm ./install.sh
 
+# Install BigDL
+COPY install-bigdl.sh ./ 
+RUN /bin/bash install-bigdl.sh
+RUN rm ./install-bigdl.sh
+
 COPY jupyter-with-zoo.sh ./
 COPY ImageTransferLearning.ipynb ./
 

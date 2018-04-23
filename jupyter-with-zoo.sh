@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export SPARK_HOME=/usr/src/app/spark-2.1.1-bin-hadoop2.7
+export ZOO_HOME=/usr/src/app/analytics-zoo/dist
+
 #  Check environment variables
 if [ -z "${ZOO_HOME}" ]; then
     echo "Please set ZOO_HOME environment variable"
