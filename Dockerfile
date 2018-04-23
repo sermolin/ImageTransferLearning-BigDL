@@ -4,6 +4,9 @@ COPY jupyter_notebook_config.py ./
 COPY install.sh ./
 RUN /bin/bash install.sh
 RUN rm ./install.sh
-COPY start-notebook ./
+
+COPY jupyter-with-zoo.sh ./
+COPY ImageTransferLearning.ipynb ./
+
 WORKDIR /host
-CMD ["/bin/bash", "/usr/src/app/start-notebook"]
+CMD ["/bin/bash", "/usr/src/app/jupyter-with-zoo.sh"]
