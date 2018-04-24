@@ -52,5 +52,98 @@ Download the pre-trained Inception-V1 model from Zoo:https://s3-ap-southeast-1.
 Command-line to launch Jupiter notebook: 
 $./scripts/jupyter-with-zoo.sh
 
+# Steps to deploy on Azure Ububtu 16.04 VM#
+
+ sudo add-apt-repository ppa:webupd8team/java
+ 
+ sudo apt-get update
+ 
+ sudo apt -get install sudo apt-get install oracle-java8-installer
+ 
+ sudo apt-get install oracle-java8-installer
+ 
+ sudo apt-get install oracle-java8-set-default
+ 
+ sudo wget http://mirrors.ibiblio.org/apache/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
+ 
+ sudo tar xvzf spark-2.2.0-bin-hadoop2.7.tgz
+ 
+ rm spark-2.2.0-bin-hadoop2.7.tgz
+ 
+ mkdir GitHub
+ 
+ cd GitHub/
+ 
+ sudo apt-get install git
+ 
+ git clone https://github.com/intel-analytics/zoo
+ 
+ cd zoo/
+ 
+ git submodule update --init --recursive
+ 
+ sudo apt-get install maven
+ 
+ bash make-dist.sh -P spark.2.x
+ 
+ cd ../..
+ 
+ git clone https://github.com/sermolin/ImageTransferLearning-BigDL
+  
+ export SPARK_HOME=/home/sermolin/spark-2.2.0-bin-hadoop2.7
+ 
+ export ZOO_HOME=/home/sermolin/GitHub/intel-analytics/zoo/dist
+ 
+ cd intel-analytics/zoo/scripts/
+ 
+ ls ../../../ImageTransferLearning-BigDL/jupyter-with-zoo.sh
+ 
+ cp ../../../ImageTransferLearning-BigDL/jupyter-with-zoo.sh .
+ 
+ mkdir model
+ 
+ cd model
+ 
+ wget https://s3-ap-southeast-1.amazonaws.com/bigdl-models/imageclassification/imagenet/bigdl_inception-v1_imagenet_0.4.0.model
+ 
+ sudo apt-get update && sudo apt-get -y upgrade
+  
+ sudo pip install jupyter numpy six
+ 
+ sudo add-apt-repository ppa:x2go/stable
+ 
+ sudo apt-get update
+ 
+ sudo apt-get install x2goserver x2goserver-xsession
+ 
+ sudo apt-get install xfce4
+ 
+ sudo service x2goserver start
+ 
+ sudo apt-get install firefox
+
+ 
+Connect via remote desktop (X2GO client), start firefox, navigate to https://www.kaggle.com/c/dogs-vs-cats, login and download train.zip dataset. Place train.zip into /home/sermolin/demo
+
+mkdir demo
+
+cd demo/
+
+unzip train.zip
+
+mkdir -p demo/dogs 
+
+mkdir -p demo/cats 
+
+find train/ -type f | grep -i cat | head -1000 | xargs -i cp {} demo/cats 
+
+find train/ -type f | grep -i dog | head -1000 | xargs -i cp {} demo/dogs
+
+rm -rf train (important to remove 'train' directory)
+   
+Now you are ready to launch the notebook:
+
+sermolin@dockera:~/GitHub/intel-analytics/zoo$ ./scripts/jupyter-with-zoo.sh
+
 
 
