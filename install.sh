@@ -2,9 +2,9 @@
 
 apt-get update
 
-conda create -y -n py35 python=2.7
+#conda create -y -n py35 python=3.5
 
-source activate py35
+#source activate py35
 
 conda install -y numpy
 conda install -y pandas
@@ -18,15 +18,7 @@ sudo apt-get -y install apt-utils
 
 conda install -y -c reeder java-jdk
 
-#apt-get -y install software-properties-common python-software-properties
-#add-apt-repository ppa:webupd8team/java
-#sudo apt-get -y update
-#sudo apt -get install sudo apt-get install oracle-java8-installer
-#sudo apt-get -y install oracle-java8-installer
-#sudo apt-get -y install oracle-java8-set-default
-
-# sudo apt-get -y update && sudo apt-get -y upgrade
-# sudo pip install jupyter numpy six
+sudo apt-get -y update && sudo apt-get -y upgrade
 
 SPARK_VER=2.2.0
 # BIGDL_VER=0.3.0
@@ -40,13 +32,13 @@ tar xzf ${SPARK_NAME}.tgz
 #wget https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-${SPARK_VER}-scala-2.11.8-linux64/${BIGDL_VER}/${BIGDL_NAME}.zip
 sudo apt-get -y install unzip
 sudo apt-get -y install vim
-
 apt-get -y install maven
 
 # mkdir ${BIGDL_NAME}
 # mv *.zip ${BIGDL_NAME}
 # cd ${BIGDL_NAME}
-
+# unzip *.zip
+# cd ..
 
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mykey.key -out mycert.pem -subj "/C=US/ST=California/L=San Francisco/O=alex kalinin/CN=kalinin.co"
 

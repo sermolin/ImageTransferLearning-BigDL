@@ -1,5 +1,6 @@
 #/bin/bash
 
-git clone https://github.com/intel-analytics/zoo
-cd analytics-zoo
-./make-dist.sh –P spark.2.x
+#source activate py35
+
+cd ./zoo
+./make-dist.sh -P spark_2.x

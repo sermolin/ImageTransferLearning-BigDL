@@ -1,7 +1,9 @@
 #!/bin/bash
 
-export SPARK_HOME=/usr/src/app/spark-2.1.1-bin-hadoop2.7
-export ZOO_HOME=/usr/src/app/analytics-zoo/dist
+export SPARK_HOME=/usr/src/app/spark-2.2.0-bin-hadoop2.7
+export ZOO_HOME=/usr/src/app/zoo/dist
+
+source activate py35
 
 #  Check environment variables
 if [ -z "${ZOO_HOME}" ]; then
@@ -47,4 +49,4 @@ if [ ! -f ${ZOO_JAR} ]; then
     exit 1
 fi
 
-${SPARK_HOME}/bin/pyspark --properties-file ${ZOO_CONF} --master=local[4] --driver-memory=2g --py-files ${ZOO_PY_ZIP} --jars ${ZOO_JAR} --conf spark.driver.extraClassPath=${ZOO_JAR} --conf spark.executor.extraClassPath=${ZOO_JAR} --conf spark.sql.catalogImplementation='in-memory' $*
+${SPARK_HOME}/bin/pyspark --properties-file ${ZOO_CONF} --master=local[2] --driver-memory=2g --py-files ${ZOO_PY_ZIP} --jars ${ZOO_JAR} --conf spark.driver.extraClassPath=${ZOO_JAR} --conf spark.executor.extraClassPath=${ZOO_JAR} --conf spark.sql.catalogImplementation='in-memory' $*
