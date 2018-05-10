@@ -107,6 +107,7 @@ $./scripts/jupyter-with-zoo.sh
  wget https://s3-ap-southeast-1.amazonaws.com/bigdl-models/imageclassification/imagenet/bigdl_inception-v1_imagenet_0.4.0.model
  
  sudo apt-get update && sudo apt-get -y upgrade
+ sudo apt-get install python-pip
   
  sudo pip install jupyter numpy six
  
